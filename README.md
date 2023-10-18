@@ -43,7 +43,7 @@ Herearii Metuarea, Engineer at Univeristy of Angers
 
 ## Other contributors
 
-Imhorphen team at INRAe:
+Imhorphen team at University of Angers:
 
 * David Rousseau, Full Professor, University of Angers
 * Pejman Rasti, Assistant professor, University of Angers
