@@ -47,4 +47,3 @@ Imhorphen team at INRAe:
 
 * David Rousseau, Full Professor, University of Angers
 * Pejman Rasti, Assistant professor, University of Angers
-* Félix Mercier, Research Engineer, INRAe
