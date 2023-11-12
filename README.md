@@ -16,6 +16,11 @@ It is not intended to be a training session. That would require a lot of time to
 - [Napari](https://napari.org/stable/tutorials/fundamentals/installation.html) as **bundle app** and **python library**
 - [VS Code](https://code.visualstudio.com/)
 - [Git](https://git-scm.com/download/win) (Standalone Installer)
+- In conda environment napari : 
+    * Tensorflow (v2.11.0)
+    * opencv-python
+    * numpy
+    * skimage
 
 ## Useful links
 
