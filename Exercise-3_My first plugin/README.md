@@ -44,14 +44,14 @@ github_username_or_organization [githubuser]: guest-0000_pizalliolo
 # recommend using the 'napari-' prefix in the package name.
 # If your package provides functionality outside of napari, you may
 # choose to leave napari out of the name.
-plugin_name [napari-foobar]: napari-thresholds
+plugin_name [napari-foobar]: napari-mifobio
 Select github_repository_url:
-1 - https://github.com/guest-0000_pizalliolo/napari-thresholds
+1 - https://github.com/guest-0000_pizalliolo/napari-mifobio
 2 - provide later
 Choose from 1, 2 [1]:
-module_name [napari_thresholds]: napari_thresholds
-display_name [napari FooBar]: Thresholds
-short_description [A simple plugin to use with napari]: Several thresholds available
+module_name [napari_mifobio]: napari_mifobio
+display_name [napari FooBar]: Mifobio
+short_description [A simple plugin to use with napari]: Run UNET model
 include_reader_plugin [y]: n
 include_writer_plugin [y]: n
 include_sample_data_plugin [y]: n
@@ -71,7 +71,7 @@ Choose from 1, 2, 3, 4, 5, 6 (1, 2, 3, 4, 5, 6) [1]: 1
 You created a **minimal** napari plugin
 
 ```bash
-napari-thresholds/
+napari-mifobio/
 │
 ├── .github
 │   └── workflows
