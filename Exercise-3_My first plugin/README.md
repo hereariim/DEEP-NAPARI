@@ -99,6 +99,12 @@ Go to the plugin directory by opening it here:
 
 *Path: C:/Users/AStage++/napari-thresholds*
 
+Come back to conda environment napari
+
+```bash
+conda activate napari
+```
+
 And install it:
 
 ```bash
