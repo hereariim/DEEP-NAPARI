@@ -22,6 +22,8 @@ First of all, we're going to create a directory that will contain the plugin str
 
 *Tips: You don't need a great deal of know-how to create the structure of a plugin. The cookiecutter function creates the structure directory for you*
 
+⚠️ **Cookiecutter is already installed**
+
 In terminal, install cookiecutter with the following command
 
 ```bash

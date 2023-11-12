@@ -33,55 +33,30 @@ def threshold_f(selected_image: ImageData,filter_selected='otsu') -> LabelsData:
     SCRIPT
     ###
     return mask
+
+@magic_factory(call_button="Run")
+def do_model_segmentation(layer: ImageData,image_viewer: Viewer) -> LabelsData:
+    return mask
 ```
 
 More information about [napari.types](https://napari.org/stable/api/napari.types.html)
-
-### Widget to calculate leaf area
-
-We have one input:
-- mask in layer
-
-In magicgui, we introduce a single variable:
-- `result_widget`: Bool variable to display a LineEdit widget the output of the function.
-
-Here `masks` is a layer labels in napari window. We need the data of `masks`. So we use the attribute `masks.data` to get data of mask.
-
-```
-@magic_factory(result_widget=True)
-def leaf_area(masks: "napari.layers.Labels"):
-    mask = masks.data
-    ###
-    SCRIPT
-    ###
-    return labels_leaf_area
-```
-More information about [napari.layers.Labels](https://napari.org/stable/api/napari.layers.Labels.html)
-
-*See correction: `_widget.py`*
 
 ## 2- `napari.yaml`
 
 In contributions section, we add our widget functions:
 ```
-  - id: napari-thresholds.my_widget #must be unique !
-    title: Thresholds
-    python_name: napari_thresholds._widget:threshold_f
-
-  - id: napari-thresholds.my_leaf_area #must be unique !
-    python_name: napari_thresholds._widget:leaf_area
-    title: Leaf area
+  - id: napari-mifobio.my_widget #must be unique !
+    title: Segmentation
+    python_name: napari_mifobio._widget:do_model_segmentation
 ```
 Here, we identify in backend our widget as
 ```
-napari-thresholds.my_widget
+napari-mifobio.my_widget
 ```
 In widgets section, we add some information to display our widget:
 ```
-  - command: napari-thresholds.my_widget #identity backend
-    display_name: Thresholds
-  - command: napari-thresholds.my_leaf_area #identity backend
-    display_name: Leaf area
+  - command: napari-mifobio.my_widget #identity backend
+    display_name: Segmentation
 ```
 
 *See correction: `napari.yaml`*
@@ -90,13 +65,12 @@ In widgets section, we add some information to display our widget:
 To be rigorous, we add our function to the plugin's family of functions
 ```
 __version__ = "0.0.1"
-from ._widget import ExampleQWidget, example_magic_widget, threshold_f, leaf_area
+from ._widget import ExampleQWidget, example_magic_widget, do_model_segmentation
 
 __all__ = (
     "ExampleQWidget",
     "example_magic_widget",
-    "threshold_f",
-    "leaf_area",
+    "do_model_segmentation",
 )
 ```
 
@@ -111,6 +85,8 @@ install_requires =
     qtpy
     scikit-image
     napari
+    tensorflow>=2.11.0
+    opencv-python
 ```
 
 *See correction: `setup.cfg`*
@@ -147,28 +123,6 @@ def test_threshold(im_rgb):
     assert type(my_widget_thd)==np.ndarray
     #check if output is binary
     assert len(np.unique(my_widget_thd))==2
-```
-
-### Leaf Area
-Let's suppose a user changes our code.
-We add test to check if leaf area is integer and positive
-
-```
-# We create a binary mask randomly
-@pytest.fixture
-def mask_bin():
-    return Labels(np.random.randint(2,size=(256,256,1)))
-
-# We establish our function by highlighting the arguments and argument keys (arg of magicgui)
-def get_ed(*args, **kwargs):
-    ed_func = leaf_area()
-    return ed_func(*args, **kwargs)
-
-# We run a test to check if output of widget is integer and positive
-def test_leaf_area(mask_bin):
-    my_widget_lf_area = get_ed(mask_bin)
-    # check if output is integer
-    assert isinstance(my_widget_lf_area,int)
 ```
 
 You can run the test after install pytest:

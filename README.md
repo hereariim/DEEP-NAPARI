@@ -47,3 +47,7 @@ Imhorphen team at University of Angers:
 
 * David Rousseau, Full Professor, University of Angers
 * Pejman Rasti, Assistant professor, University of Angers
+
+## Contribution
+
+This workshop is a part of MIFOBIO 2023 offered by Imhorphen team. It was written in the context of PHENET project.

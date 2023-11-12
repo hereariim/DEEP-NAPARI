@@ -1,6 +1,6 @@
 # How to make the plugin visible in the built-in napari
 
-Be at `napari-thresholds` directory where `pyproject.toml` is located
+Be at `napari-mifobio` directory where `pyproject.toml` is located
 
 Prerequisite: 
 - **Account Pypi**
