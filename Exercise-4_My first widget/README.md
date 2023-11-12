@@ -2,8 +2,10 @@
 
 ## Script
 
-The script is contained in the notebook `leaf_area.ipynb`. We want determine the leaf area of some leaf:
-![PLPATH-FRU-35-Strawberry-Leaf-Diseases-figure-4](https://github.com/hereariim/IPPN_napari/assets/93375163/f8833fb2-9b1e-4518-83f3-db23eafd5dac)
+The script is contained in the notebook `mifobio.ipynb`. We want detect nucleus:
+
+![03f583ec5018739f4abb9b3b4a580ac43bd933c4337ad8877aa18b1dfb59fc9a](https://github.com/hereariim/DEEP-NAPARI/assets/93375163/6e08ad15-8507-46fd-909a-0c3b446383bd)
+
 
 ## Add a widget
 
