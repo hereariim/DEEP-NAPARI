@@ -21,7 +21,7 @@ In magicgui, we introduce one variable:
 from napari.types import ImageData, LabelsData
 
 @magic_factory(call_button="Run")
-def do_model_segmentation(layer: ImageData,image_viewer: Viewer) -> LabelsData:
+def do_model_segmentation(layer: ImageData,image_viewer: napari.viewer.Viewer) -> LabelsData:
     ###
     SCRIPT
     ###
