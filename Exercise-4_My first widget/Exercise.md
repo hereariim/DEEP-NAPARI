@@ -2,25 +2,18 @@
 
 ## 1- `_widget.py`
 
-We're going to design two widgets:
-
-- A widget for thresholding
-
-- A widget to calculate leaf area
-
-So, for each widget, we're going to create a function to contain the script and a GUI.
+We're going to design a widget to detect nucleus based on deep learning model.
+We're going to create a function to contain the script and a GUI.
 
 ### Widget for thresholding
 
 We have two input:
 - image in array
-- name of filter
 
 In napari, **image** input is presented as `napari.types` object.
 
-In magicgui, we introduce two variables:
+In magicgui, we introduce one variable:
 - `selected_image`: current image in napari window which is given by `ImageData` object from `napari.types`.
-- `filter_selected`: current selected thresholding which is given by user.
 
 ⚠️Don't forget to import `ImageData` and `LabelsData` in `_widget.py`: `from napari.types import ImageData, LabelsData`
 
