@@ -27,15 +27,11 @@ In magicgui, we introduce two variables:
 ```
 from napari.types import ImageData, LabelsData
 
-@magic_factory(call_button="Run", filter_selected={"choices": ['otsu', 'li']})
-def threshold_f(selected_image: ImageData,filter_selected='otsu') -> LabelsData:
+@magic_factory(call_button="Run")
+def do_model_segmentation(layer: ImageData,image_viewer: Viewer) -> LabelsData:
     ###
     SCRIPT
     ###
-    return mask
-
-@magic_factory(call_button="Run")
-def do_model_segmentation(layer: ImageData,image_viewer: Viewer) -> LabelsData:
     return mask
 ```
 
@@ -95,9 +91,8 @@ install_requires =
 
 When the plugin is working well, you can add a few tests to each widget to see if the widgets work when a modification has been made to the code. These tests indicate that the plugin is working properly.
 
-Here, we add test for each widget.
+Here, we add a test.
 
-### Threshold
 Let's suppose a user changes our code.
 We add test to check if output is a numpy array and binary
 
@@ -113,12 +108,12 @@ def im_rgb():
 
 # We establish our function by highlighting the arguments and argument keys (arg of magicgui)
 def get_er(*args, **kwargs):
-    er_func = threshold_f()
+    er_func = do_model_segmentation()
     return er_func(*args, **kwargs)
 
 # We run a test to check if output is numpy array and binary
 def test_threshold(im_rgb):
-    my_widget_thd = get_er(im_rgb,filter_selected='otsu')
+    my_widget_thd = get_er(im_rgb)
     #check if output is numpy array
     assert type(my_widget_thd)==np.ndarray
     #check if output is binary
