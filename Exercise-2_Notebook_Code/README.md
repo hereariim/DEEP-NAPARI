@@ -18,7 +18,13 @@ Algorithme :
 Une image RGB est réduit à la taille d'entrée du modèle d'apprentissage. Ce modèle segmente cette image pour obtenir un masque de probabilité. Pour détecter les noyaux, un seuillage est appliqué pour obtenir un masque binaire. Enfin, ce masque binaire est redimensionné à sa taille d'origine.
 
 
-## Run Notebook
+## Exercise
+
+### Import data
+
+Upload mifobio.ipynb, images and model into a repository in your PC.
+
+### Run Notebook
 
 Aller sur le feuille de calcul 'mifobio.ipynb'.
 En haut à droite, connecter le noyau à l'environnement napari.
