@@ -13,7 +13,7 @@ We will work on CMD to access virtual environment in your PC.
 Go to this environment by this command:
 
 ```bash
-conda activate napari-env
+conda activate napari
 ```
 
 # Create your plugin
