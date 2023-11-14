@@ -2,7 +2,8 @@
 
 ## 1- `_widget.py`
 
-We're going to design a widget to run inference on image. We're going to create a function to contain the script and a GUI.
+We're going to design a widget to detect nucleus based on deep learning model.
+We're going to create a function to contain the script and a GUI.
 
 ### Widget Segmentation
 
@@ -11,9 +12,8 @@ We have one input:
 
 In napari, **image** input is presented as `napari.types` object.
 
-In magicgui, we introduce two variables:
+In magicgui, we introduce one variable:
 - `selected_image`: current image in napari window which is given by `ImageData` object from `napari.types`.
-- `filter_selected`: current selected thresholding which is given by user.
 
 ⚠️Don't forget to import `ImageData` and `LabelsData` in `_widget.py`: `from napari.types import ImageData, LabelsData`
 
