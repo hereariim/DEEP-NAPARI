@@ -99,7 +99,7 @@ Go to the plugin directory by opening it here:
 
 *Path: C:/Users/Nikon/napari-mifobio*
 
-Come back to conda environment napari
+In command prompt, come back to conda environment napari
 
 ```bash
 conda activate napari
