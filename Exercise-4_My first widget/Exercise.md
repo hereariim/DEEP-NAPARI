@@ -7,6 +7,8 @@ We're going to create a function to contain the script and a GUI.
 
 ### Widget Segmentation
 
+We're going to integrate the image processing script (from the notebook script `mifobio.ipynb`) into the code `# SCRIPT`. When, you integrate the script, you should make some adaptation of the code at the input adn output.
+
 We have one input:
 - image in array
 
