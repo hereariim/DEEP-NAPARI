@@ -2,35 +2,33 @@
 
 ## Code
 
-Le code est une inférence d'image pour détecter les noyaux à partir d'un modèle U-NET. Ce modèle U-NET est sauvegardé sous format tensorflow .h5. 
+The code is an image inference to detect nuclei from a U-NET model. This U-NET model is saved in tensorflow .h5 format.
 
-En entrée, un utilisateur écrit:
+A user writes as input:
 
-- model_path_ : Chemin absolu du modèle d'apprentissage
-- input_ : Chemin absolu d'une image RGB
+- `model_path_` : Absolute path of the training model
+- `input_`: Absolute path to an RGB image
 
-En sortie, un utilisateur obtient:
+As output, a user obtains
 
-- output_ : Une masque binaire
+- `output_` : A binary mask
 
-Algorithme : 
+Algorithm : 
 
-Une image RGB est réduit à la taille d'entrée du modèle d'apprentissage. Ce modèle segmente cette image pour obtenir un masque de probabilité. Pour détecter les noyaux, un seuillage est appliqué pour obtenir un masque binaire. Enfin, ce masque binaire est redimensionné à sa taille d'origine.
+An RGB image is reduced to the input size of the learning model. This model segments this image to obtain a probability mask. To detect kernels, thresholding is applied to obtain a binary mask. Finally, this binary mask is resized to its original size.
 
 
 ## Exercise
 
 ### Import data
 
-Upload mifobio.ipynb, images and model into a repository in your PC.
+Upload `mifobio.ipynb`, images and model into a repository in your PC.
 
 ### Run Notebook
 
-Aller sur le feuille de calcul 'mifobio.ipynb'.
-En haut à droite, connecter le noyau à l'environnement napari.
+Go to the `mifobio.ipynb` spreadsheet.
+At the top right, connect the kernel to the napari environment.
 
-En entrée, le chemin absolu de model_path_ et input_
+Please, write as input the absolute path of `model_path_` and `input_`.
 
-Visualiser, le résultat de la segmentation.
-
-
+View the result of the segmentation.

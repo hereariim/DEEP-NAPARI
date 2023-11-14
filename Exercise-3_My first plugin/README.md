@@ -105,10 +105,10 @@ In command prompt, come back to conda environment napari
 conda activate napari
 ```
 
-And install it:
+And install the plugin locally:
 
 ```bash
-pip install -e . #Install plugin locally
+pip install -e .
 ```
 
 Run `pip install -e .` where `pyproject.toml` is located
