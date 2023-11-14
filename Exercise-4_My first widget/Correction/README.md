@@ -1,13 +1,13 @@
-# napari-thresholds
+# napari-mifobio
 
-[![License BSD-3](https://img.shields.io/pypi/l/napari-thresholds.svg?color=green)](https://github.com/githubuser/napari-thresholds/raw/main/LICENSE)
-[![PyPI](https://img.shields.io/pypi/v/napari-thresholds.svg?color=green)](https://pypi.org/project/napari-thresholds)
-[![Python Version](https://img.shields.io/pypi/pyversions/napari-thresholds.svg?color=green)](https://python.org)
-[![tests](https://github.com/githubuser/napari-thresholds/workflows/tests/badge.svg)](https://github.com/githubuser/napari-thresholds/actions)
-[![codecov](https://codecov.io/gh/githubuser/napari-thresholds/branch/main/graph/badge.svg)](https://codecov.io/gh/githubuser/napari-thresholds)
-[![napari hub](https://img.shields.io/endpoint?url=https://api.napari-hub.org/shields/napari-thresholds)](https://napari-hub.org/plugins/napari-thresholds)
+[![License BSD-3](https://img.shields.io/pypi/l/napari-mifobio.svg?color=green)](https://github.com/githubuser/napari-mifobio/raw/main/LICENSE)
+[![PyPI](https://img.shields.io/pypi/v/napari-mifobio.svg?color=green)](https://pypi.org/project/napari-mifobio)
+[![Python Version](https://img.shields.io/pypi/pyversions/napari-mifobio.svg?color=green)](https://python.org)
+[![tests](https://github.com/githubuser/napari-mifobio/workflows/tests/badge.svg)](https://github.com/githubuser/napari-mifobio/actions)
+[![codecov](https://codecov.io/gh/githubuser/napari-mifobio/branch/main/graph/badge.svg)](https://codecov.io/gh/githubuser/napari-mifobio)
+[![napari hub](https://img.shields.io/endpoint?url=https://api.napari-hub.org/shields/napari-mifobio)](https://napari-hub.org/plugins/napari-mifobio)
 
-Several thresholds available
+Several mifobio available
 
 ----------------------------------
 
@@ -23,23 +23,19 @@ https://napari.org/stable/plugins/index.html
 
 ## Installation
 
-You can install `napari-thresholds` via [pip]:
+You can install `napari-mifobio` via [pip]:
 
-    pip install napari-thresholds
+    pip install napari-mifobio
 
 
 
 To install latest development version :
 
-    pip install git+https://github.com/githubuser/napari-thresholds.git
+    pip install git+https://github.com/githubuser/napari-mifobio.git
 
-## Threshold
+## Segmentation
 
-This plugin applies thresholding to an RGB image. Two thresholding methods are proposed:
-
-- Otsu method
-
-- Li method
+This plugin run pre-trained segmentation model on RGB image.
 
 ## Contributing
 
@@ -49,7 +45,7 @@ the coverage at least stays the same before you submit a pull request.
 ## License
 
 Distributed under the terms of the [BSD-3] license,
-"napari-thresholds" is free and open source software
+"napari-mifobio" is free and open source software
 
 ## Issues
 
@@ -66,7 +62,7 @@ If you encounter any problems, please [file an issue] along with a detailed desc
 [Mozilla Public License 2.0]: https://www.mozilla.org/media/MPL/2.0/index.txt
 [cookiecutter-napari-plugin]: https://github.com/napari/cookiecutter-napari-plugin
 
-[file an issue]: https://github.com/githubuser/napari-thresholds/issues
+[file an issue]: https://github.com/githubuser/napari-mifobio/issues
 
 [napari]: https://github.com/napari/napari
 [tox]: https://tox.readthedocs.io/en/latest/
