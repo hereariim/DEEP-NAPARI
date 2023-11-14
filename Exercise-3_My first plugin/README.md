@@ -50,7 +50,7 @@ plugin_name [napari-foobar]: napari-mifobio
 Select github_repository_url:
 1 - https://github.com/guest-0000_pizalliolo/napari-mifobio
 2 - provide later
-Choose from 1, 2 [1]:
+Choose from 1, 2 [1]: 1
 module_name [napari_mifobio]: napari_mifobio
 display_name [napari FooBar]: Mifobio
 short_description [A simple plugin to use with napari]: Run UNET model
@@ -99,7 +99,7 @@ Go to the plugin directory by opening it here:
 
 *Path: C:/Users/Nikon/napari-mifobio*
 
-In command prompt, come back to conda environment napari
+In **command prompt**, come back to conda environment napari
 
 ```bash
 conda activate napari

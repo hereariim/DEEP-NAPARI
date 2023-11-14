@@ -7,7 +7,7 @@ We're going to create a function to contain the script and a GUI.
 
 ### Widget Segmentation
 
-We're going to integrate the image processing script (from the notebook script `mifobio.ipynb`) into the code `# SCRIPT`. When, you integrate the script, you should make some adaptation of the code at the input adn output.
+We're going to integrate the image processing script (from the notebook script `mifobio.ipynb`) into the code `# SCRIPT`. In , we integrate only code in cell 1-2, not cell 3 because we use napari to display our data. When, you integrate the script, **you should adapt the code at the input and output**.
 
 We have one input:
 - image in array
@@ -37,9 +37,13 @@ def do_model_segmentation(layer: ImageData,image_viewer: Viewer) -> LabelsData:
     return mask
 ```
 
-Besides, we need to specify the path of deep learning to run in keras function 'load_model'. We use the script _path.py where some functions find themselves the absolute path of the model.
+Besides, we need to specify the path of deep learning to run in keras function `load_model`. We use the script `_paths.py` where some functions find themselves the absolute path of the model.
+
+Please, integrate the model `ESRF_Seg_Hands_on_best_model.h5` in `napari_mifobio` folder.
 
 More information about [napari.types](https://napari.org/stable/api/napari.types.html)
+
+⚠️Please, run `pip install -e . ` to update the library
 
 ## 2- `napari.yaml`
 
@@ -102,7 +106,18 @@ Here, we add a test.
 Let's suppose a user changes our code.
 We add test to check if output is a numpy array and binary
 
+Don't forget to import `do_model_segmentation`
+
+
 ```
+from napari_mifobio._widget import (
+    ExampleQWidget,
+    ImageThreshold,
+    threshold_autogenerate_widget,
+    threshold_magic_widget,
+    do_model_segmentation,
+)
+
 import pytest
 from napari.types import ImageData, LabelsData
 from napari.layers import Image, Labels
@@ -126,9 +141,9 @@ def test_threshold(im_rgb):
     assert len(np.unique(my_widget_thd))==2
 ```
 
-You can run the test after install pytest:
+You can run the test after install pytest (Be at napari-mifobio directory level):
 ```
-pip install ".[testing]" #Be at napari-mifobio directory level
+pip install ".[testing]"
 ```
 and run the test
 ```

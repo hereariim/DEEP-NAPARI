@@ -34,22 +34,6 @@ from magicgui import magic_factory
 from magicgui.widgets import CheckBox, Container, create_widget
 from qtpy.QtWidgets import QHBoxLayout, QPushButton, QWidget
 from skimage.util import img_as_float
-from napari.types import ImageData, LabelsData
-from napari.viewer import Viewer
-import cv2
-import matplotlib.pyplot as plt
-import napari_mifobio._paths as paths
-
-from tqdm import tqdm
-from itertools import chain
-from skimage.io import imread, imshow, imread_collection, concatenate_images
-from skimage.transform import resize
-from skimage.morphology import label
-import numpy as np
-import tensorflow as tf
-from tensorflow.keras import backend as K
-import random
-import os
 
 if TYPE_CHECKING:
     import napari
@@ -143,6 +127,23 @@ class ExampleQWidget(QWidget):
     def _on_click(self):
         print("napari has", len(self.viewer.layers), "layers")
 
+from napari.types import ImageData, LabelsData
+from napari.viewer import Viewer
+import os
+import napari_mifobio._paths as paths
+
+import cv2
+import matplotlib.pyplot as plt
+
+from tqdm import tqdm
+from itertools import chain
+from skimage.io import imread, imshow, imread_collection, concatenate_images
+from skimage.transform import resize
+from skimage.morphology import label
+import numpy as np
+import tensorflow as tf
+from tensorflow.keras import backend as K
+import random
 
 # the coefficient takes values in [0, 1], where 0 is the worst score, 1 is the best score
 # the dice coefficient of two sets represented as vectors a, b ca be computed as (2 *|a b| / (a^2 + b^2))
@@ -160,6 +161,9 @@ def do_model_segmentation(layer: ImageData,image_viewer: Viewer) -> LabelsData:
 
     model_New = tf.keras.models.load_model(model_path_,custom_objects={'dice_coefficient': dice_coefficient})
 
+    ###
+    ##BELOW THE CODE
+    ###
     _, IMG_HEIGHT, IMG_WIDTH, IMG_CHANNELS = list(model_New.input.shape)
 
     img_ = layer
@@ -174,6 +178,7 @@ def do_model_segmentation(layer: ImageData,image_viewer: Viewer) -> LabelsData:
         img = resize(img_, (IMG_HEIGHT, IMG_WIDTH), mode='constant', preserve_range=True)
         X[0] = img
     elif nbr_image==4:
+        img_ = np.array(img_)
         img_ = img_[:,:,:,:IMG_CHANNELS]
         X = np.zeros((img_.shape[0], IMG_HEIGHT, IMG_WIDTH, IMG_CHANNELS), dtype=np.uint8)
         shape_h, shape_w = [], []
@@ -183,7 +188,7 @@ def do_model_segmentation(layer: ImageData,image_viewer: Viewer) -> LabelsData:
             shape_w.append(img_[i,...].shape[1])
             img = resize(img_[i,...], (IMG_HEIGHT, IMG_WIDTH), mode='constant', preserve_range=True)
             X[i] = img
-
+            
         ORIGIN = np.zeros((img_.shape[0],np.max(shape_h),np.max(shape_w),IMG_CHANNELS), dtype=np.uint8) 
         for i in range(img_.shape[0]):
             ORIGIN[i,...][:shape_h[i], :shape_w[i],:] = img_[i,...]
@@ -204,5 +209,6 @@ def do_model_segmentation(layer: ImageData,image_viewer: Viewer) -> LabelsData:
         for i in range(img_.shape[0]):
             res_ = resize(result_[i], (shape_h[i], shape_w[i]), mode='constant', preserve_range=True)
             mask[i,...][:shape_h[i], :shape_w[i]] = res_
+
 
     return mask
