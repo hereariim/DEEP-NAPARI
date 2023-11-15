@@ -44,14 +44,14 @@ Video tutorial (in french) :
 
 ## Authors
 
-Herearii Metuarea, Engineer at Univeristy of Angers
+Herearii Metuarea, Engineer at Univeristé d'Angers
 
 ## Other contributors
 
-Imhorphen team at University of Angers:
+Imhorphen team at Univeristé d'Angers:
 
-* David Rousseau, Full Professor, University of Angers
-* Pejman Rasti, Assistant professor, University of Angers
+* David Rousseau, Full Professor, Univeristé d'Angers
+* Pejman Rasti, Assistant professor, Univeristé d'Angers
 
 ## Contribution
 
