@@ -1,8 +1,8 @@
-# DEEP NAPARI : Napari as a tool for phenotyping
+# DEEP NAPARI : Napari as a tool for deep learning project management
 
 ![Alt text](images-credit/mifobio2023.png)
 
-This document is part of the Hands on session of the MIFOBIO 2023. The aim of this document is to show the value of napari in plant phenotyping.
+This document is part of the Hands on session of the MIFOBIO 2023. The aim of this document is to show the value of napari in Deep learning project managemeent
 
 It is not intended to be a training session. That would require a lot of time to fully explore napari. The Hands on session for napari is a three-part discovery activity:
 - Introducing the napari visualisation tools
