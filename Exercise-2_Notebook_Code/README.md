@@ -29,6 +29,8 @@ Upload `mifobio.ipynb`, images and model into a repository in your PC.
 Go to the `mifobio.ipynb` spreadsheet.
 At the top right, connect the kernel to the napari environment.
 
+⚠️ **If you receive a message from Windows Security Alert, click CANCEL**
+
 Please, write as input the absolute path of `model_path_` and `input_`.
 
 View the result of the segmentation.
