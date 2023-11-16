@@ -52,6 +52,7 @@ Imhorphen team at Université d'Angers:
 
 * David Rousseau, Full Professor, Université d'Angers
 * Pejman Rasti, Assistant professor, Université d'Angers
+* Valentin Gilet, PhD, Université d'Angers
 
 ## Contribution
 
