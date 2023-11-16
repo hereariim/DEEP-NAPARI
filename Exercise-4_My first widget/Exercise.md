@@ -119,6 +119,7 @@ Please, integrate the model `ESRF_Seg_Hands_on_best_model.h5` in `napari_mifobio
 More information about [napari.types](https://napari.org/stable/api/napari.types.html)
 
 ⚠️Please, run `pip install -e . ` to update the library
+⚠️Don't forget to save your update : Ctrl+S
 
 ## 2- `napari.yaml`
 
@@ -140,6 +141,8 @@ In widgets section, we add some information to display our widget:
       display_name: Segmentation
 ```
 
+⚠️Don't forget to save your update : Ctrl+S
+
 *See correction: `napari.yaml`*
 
 ## 3- `__init__.py`
@@ -160,6 +163,8 @@ __all__ = (
 )
 ```
 
+⚠️Don't forget to save your update : Ctrl+S
+
 *See correction: `__init__.py`*
 
 ## 4-  `setup.cfg`
@@ -177,6 +182,8 @@ install_requires =
     tensorflow>=2.11.0
     opencv-python
 ```
+
+⚠️Don't forget to save your update : Ctrl+S
 
 *See correction: `setup.cfg`*
 
