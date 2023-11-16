@@ -1,5 +1,7 @@
 # Exercise
 
+Here, the process to create a widget:
+
 ## 1- `_widget.py`
 
 We're going to design a widget to detect nucleus based on deep learning model.
