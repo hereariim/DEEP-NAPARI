@@ -111,9 +111,7 @@ install_requires =
 
 *See correction: `setup.cfg`*
 
-## 5-  `test_widget.py`
-
-
+## 5- (Optional for this workshop) `test_widget.py`
 
 ![DEEPNAPARI_credit(5)](https://github.com/hereariim/DEEP-NAPARI/assets/93375163/c2ad5495-40ed-44a9-bd96-273a116110ab)
 
