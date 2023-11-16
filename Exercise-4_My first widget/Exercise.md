@@ -2,8 +2,7 @@
 
 Here, the process to create a widget:
 
-
-
+![DEEPNAPARI_credit(2)](https://github.com/hereariim/DEEP-NAPARI/assets/93375163/c59a1307-87e5-419a-a887-11128700f1fd)
 
 ## 1- `_widget.py`
 
@@ -76,7 +75,7 @@ In widgets section, we add some information to display our widget:
 
 ## 3- `__init__.py`
 
-![DEEPNAPARI_credit(2)](https://github.com/hereariim/DEEP-NAPARI/assets/93375163/c59a1307-87e5-419a-a887-11128700f1fd)
+![DEEPNAPARI_credit(3)](https://github.com/hereariim/DEEP-NAPARI/assets/93375163/496c2242-799d-4e19-9c89-014ef8cd158e)
 
 To be rigorous, we add our function to the plugin's family of functions
 ```
@@ -96,9 +95,7 @@ __all__ = (
 
 ## 4-  `setup.cfg`
 
-
-![DEEPNAPARI_credit(3)](https://github.com/hereariim/DEEP-NAPARI/assets/93375163/496c2242-799d-4e19-9c89-014ef8cd158e)
-
+![DEEPNAPARI_credit(4)](https://github.com/hereariim/DEEP-NAPARI/assets/93375163/3aaf3301-9ce0-42c2-9f60-3a35cd930dcb)
 
 In the configuration file, we specify the libraries we will use in the script to threshold an image. In `[options]` section, we add in `install_requires` variable our used libraries such as `scikit-image`
 ```
@@ -116,7 +113,6 @@ install_requires =
 
 ## 5-  `test_widget.py`
 
-![DEEPNAPARI_credit(4)](https://github.com/hereariim/DEEP-NAPARI/assets/93375163/3aaf3301-9ce0-42c2-9f60-3a35cd930dcb)
 
 
 ![DEEPNAPARI_credit(5)](https://github.com/hereariim/DEEP-NAPARI/assets/93375163/c2ad5495-40ed-44a9-bd96-273a116110ab)
