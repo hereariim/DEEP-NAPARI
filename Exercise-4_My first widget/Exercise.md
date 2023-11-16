@@ -2,10 +2,16 @@
 
 Here, the process to create a widget:
 
+![DEEPNAPARI_credit](https://github.com/hereariim/DEEP-NAPARI/assets/93375163/9b8c84b4-0c3c-4f48-9bc6-fe394dc1a119)
+
+
+
 ## 1- `_widget.py`
 
 We're going to design a widget to detect nucleus based on deep learning model.
 We're going to create a function to contain the script and a GUI.
+
+![DEEPNAPARI_credit(1)](https://github.com/hereariim/DEEP-NAPARI/assets/93375163/68d118a9-9629-47d3-ac5b-4b5e1e742d32)
 
 ### Widget Segmentation
 
@@ -49,6 +55,9 @@ More information about [napari.types](https://napari.org/stable/api/napari.types
 
 ## 2- `napari.yaml`
 
+![DEEPNAPARI_credit(2)](https://github.com/hereariim/DEEP-NAPARI/assets/93375163/c59a1307-87e5-419a-a887-11128700f1fd)
+
+
 In contributions section, we add our widget functions:
 ```
     - id: napari-mifobio.my_widget #must be unique !
@@ -68,6 +77,10 @@ In widgets section, we add some information to display our widget:
 *See correction: `napari.yaml`*
 
 ## 3- `__init__.py`
+
+![DEEPNAPARI_credit(3)](https://github.com/hereariim/DEEP-NAPARI/assets/93375163/496c2242-799d-4e19-9c89-014ef8cd158e)
+
+
 To be rigorous, we add our function to the plugin's family of functions
 ```
 __version__ = "0.0.1"
@@ -85,6 +98,10 @@ __all__ = (
 *See correction: `__init__.py`*
 
 ## 4-  `setup.cfg`
+
+![DEEPNAPARI_credit(4)](https://github.com/hereariim/DEEP-NAPARI/assets/93375163/3aaf3301-9ce0-42c2-9f60-3a35cd930dcb)
+
+
 In the configuration file, we specify the libraries we will use in the script to threshold an image. In `[options]` section, we add in `install_requires` variable our used libraries such as `scikit-image`
 ```
 install_requires =
@@ -100,6 +117,8 @@ install_requires =
 *See correction: `setup.cfg`*
 
 ## 5-  `test_widget.py`
+
+![DEEPNAPARI_credit(5)](https://github.com/hereariim/DEEP-NAPARI/assets/93375163/c2ad5495-40ed-44a9-bd96-273a116110ab)
 
 When the plugin is working well, you can add a few tests to each widget to see if the widgets work when a modification has been made to the code. These tests indicate that the plugin is working properly.
 
