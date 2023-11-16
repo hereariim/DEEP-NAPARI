@@ -131,6 +131,7 @@ In contributions section, we add our widget functions:
       python_name: napari_mifobio:do_model_segmentation
       title: Segmentation
 ```
+⚠️To integrate the pasted code into the section, press the Tab button on your keyboard.
 Here, we identify in backend our widget as
 ```
 napari-mifobio.my_widget
@@ -140,7 +141,7 @@ In widgets section, we add some information to display our widget:
     - command: napari-mifobio.my_widget #identity backend
       display_name: Segmentation
 ```
-
+⚠️To integrate the pasted code into the section, press the Tab button on your keyboard.
 ⚠️Don't forget to save your update : Ctrl+S
 
 *See correction: `napari.yaml`*
