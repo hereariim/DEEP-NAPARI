@@ -31,6 +31,26 @@ from napari.viewer import Viewer
 import os
 import napari_mifobio._paths as paths
 
+import cv2
+from tqdm import tqdm
+from itertools import chain
+from skimage.io import imread, imshow, imread_collection, concatenate_images
+from skimage.transform import resize
+from skimage.morphology import label
+import numpy as np
+import tensorflow as tf
+from tensorflow.keras import backend as K
+import random
+
+# the coefficient takes values in [0, 1], where 0 is the worst score, 1 is the best score
+# the dice coefficient of two sets represented as vectors a, b ca be computed as (2 *|a b| / (a^2 + b^2))
+def dice_coefficient(y_true, y_pred):
+    eps = 1e-6
+    y_true_f = K.flatten(y_true)
+    y_pred_f = K.flatten(y_pred)
+    intersection = K.sum(y_true_f * y_pred_f)
+    return (2. * intersection) / (K.sum(y_true_f * y_true_f) + K.sum(y_pred_f * y_pred_f) + eps)
+
 @magic_factory(call_button="Run")
 def do_model_segmentation(layer: ImageData,image_viewer: Viewer) -> LabelsData:
 
@@ -44,7 +64,7 @@ def do_model_segmentation(layer: ImageData,image_viewer: Viewer) -> LabelsData:
     _, IMG_HEIGHT, IMG_WIDTH, IMG_CHANNELS = list(model_New.input.shape)
 
     # img_ = imread(input_) # ORIGINAL CODE
-    img_ = layer
+    img_ = layer # ADAPT THE INPUT
 
     nbr_image = len(img_.shape)
     if nbr_image==3:
@@ -87,8 +107,6 @@ def do_model_segmentation(layer: ImageData,image_viewer: Viewer) -> LabelsData:
         for i in range(img_.shape[0]):
             res_ = resize(result_[i], (shape_h[i], shape_w[i]), mode='constant', preserve_range=True)
             mask[i,...][:shape_h[i], :shape_w[i]] = res_
-
-
     ############
 
     return mask
