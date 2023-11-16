@@ -97,7 +97,12 @@ Go to the plugin directory by opening it here:
 
 *Path: C:/Users/Nikon/napari-mifobio*
 
-In **command prompt**, come back to conda environment napari
+In **command prompt**
+
+
+![Copie de thumbnail tuto acquisition d'un objet 3D avec rangevision](https://github.com/hereariim/IPPN_napari/assets/93375163/0432691b-cc89-4a57-81f9-543d1058fc53)
+
+Come back to conda environment napari
 
 ```bash
 conda activate napari

@@ -39,6 +39,57 @@ def do_model_segmentation(layer: ImageData,image_viewer: Viewer) -> LabelsData:
     model_New = tf.keras.models.load_model(model_path_,custom_objects={'dice_coefficient': dice_coefficient})
 
     # SCRIPT
+    ############
+
+    _, IMG_HEIGHT, IMG_WIDTH, IMG_CHANNELS = list(model_New.input.shape)
+
+    # img_ = imread(input_) # ORIGINAL CODE
+    img_ = layer
+
+    nbr_image = len(img_.shape)
+    if nbr_image==3:
+        img_ = img_[:,:,:IMG_CHANNELS]
+        X = np.zeros((1, IMG_HEIGHT, IMG_WIDTH, IMG_CHANNELS), dtype=np.uint8)
+        h_or, w_or, _ = img_.shape
+        ORIGIN = np.zeros((1, h_or, w_or, IMG_CHANNELS), dtype=np.uint8)
+        ORIGIN[0] = img_
+        img = resize(img_, (IMG_HEIGHT, IMG_WIDTH), mode='constant', preserve_range=True)
+        X[0] = img
+    elif nbr_image==4:
+        img_ = np.array(img_)
+        img_ = img_[:,:,:,:IMG_CHANNELS]
+        X = np.zeros((img_.shape[0], IMG_HEIGHT, IMG_WIDTH, IMG_CHANNELS), dtype=np.uint8)
+        shape_h, shape_w = [], []
+        for i in range(img_.shape[0]):
+            print(img_[i,...].shape)
+            shape_h.append(img_[i,...].shape[0])
+            shape_w.append(img_[i,...].shape[1])
+            img = resize(img_[i,...], (IMG_HEIGHT, IMG_WIDTH), mode='constant', preserve_range=True)
+            X[i] = img
+            
+        ORIGIN = np.zeros((img_.shape[0],np.max(shape_h),np.max(shape_w),IMG_CHANNELS), dtype=np.uint8) 
+        for i in range(img_.shape[0]):
+            ORIGIN[i,...][:shape_h[i], :shape_w[i],:] = img_[i,...]
+
+    preds_test = model_New.predict(X, verbose=1)
+    # we apply a threshold on predicted mask (probability mask) to convert it to a binary mask.
+    preds_test_opt = (preds_test > 0.5).astype(np.uint8)
+
+    if nbr_image==3:
+        result_ = np.squeeze(preds_test_opt[0, :, :, 0])
+        mask = np.zeros((1,h_or,w_or), dtype=np.uint8)
+        res_ = resize(result_, (h_or, w_or), mode='constant', preserve_range=True)
+        mask[0] = res_
+    elif nbr_image==4:
+        img_ = img_[:,:,:,:IMG_CHANNELS]
+        result_ = np.squeeze(preds_test_opt[:, :, :, 0])
+        mask = np.zeros((img_.shape[0],np.max(shape_h),np.max(shape_w)), dtype=np.uint8)
+        for i in range(img_.shape[0]):
+            res_ = resize(result_[i], (shape_h[i], shape_w[i]), mode='constant', preserve_range=True)
+            mask[i,...][:shape_h[i], :shape_w[i]] = res_
+
+
+    ############
 
     return mask
 ```
@@ -110,6 +161,12 @@ install_requires =
 ```
 
 *See correction: `setup.cfg`*
+
+And run
+
+```bash
+pip install -e .
+```
 
 ## 5- (Optional for this workshop) `test_widget.py`
 
