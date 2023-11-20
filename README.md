@@ -6,8 +6,8 @@ This document is part of the Hands on session of the MIFOBIO 2023. The aim of th
 
 It is not intended to be a training session. That would require a lot of time to fully explore napari. The Hands on session for napari is a three-part discovery activity:
 - Introducing the napari visualisation tools
-- Getting started a napari plugin
-- Getting started the design and development of a plugin
+- Getting started the design of a plugin
+- Getting started the development of this plugin by adding a widget
 
 ## Prerequisites tools for this session Hands On
 
